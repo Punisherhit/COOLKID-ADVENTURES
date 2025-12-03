@@ -48,7 +48,7 @@ const ContactSection = () => {
                 <MapPin className="w-8 h-8 text-accent" />
               </div>
               <h3 className="font-display text-xl text-foreground mb-2">Location</h3>
-              <p className="font-body text-muted-foreground text-sm">Sand Dunes, Kenya</p>
+              <p className="font-body text-muted-foreground text-sm">Mambrui, Malindi - Kenya</p>
             </div>
           </div>
 

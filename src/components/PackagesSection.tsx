@@ -59,7 +59,7 @@ const packages = [
     icon: Camera,
     description: "Professional photos",
     items: [
-      { name: "10 Edited Pictures", price: 1500 },
+      { name: "10 Edited Pictures", price: 2500 },
     ],
   },
   {

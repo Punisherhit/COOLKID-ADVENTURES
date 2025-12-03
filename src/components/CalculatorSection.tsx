@@ -35,10 +35,12 @@ const initialItems: CalculatorItem[] = [
   { id: "maji-small", name: "Maji Ndogo", price: 50, category: "Refreshments", quantity: 0 },
   { id: "maji-large", name: "Maji Kubwa", price: 100, category: "Refreshments", quantity: 0 },
   // Photography
-  { id: "photos", name: "10 Edited Pictures", price: 1500, category: "Photography", quantity: 0 },
+  { id: "photos", name: "10 Edited Pictures", price: 2500, category: "Photography", quantity: 0 },
+  // Special
+  { id: "video-clips", name: "Artists Video Clips (Location + 5 Guides)", price: 10000, category: "Special", quantity: 0 },
 ];
 
-const categories = ["Entrance", "Quad Biking", "Clothing", "Refreshments", "Photography"];
+const categories = ["Entrance", "Quad Biking", "Clothing", "Refreshments", "Photography", "Special"];
 
 const CalculatorSection = () => {
   const [items, setItems] = useState<CalculatorItem[]>(initialItems);
