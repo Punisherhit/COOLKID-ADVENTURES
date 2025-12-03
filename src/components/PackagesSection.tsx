@@ -1,12 +1,12 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Bike, Camera, Droplets, ShirtIcon, Users, MapPin } from "lucide-react";
+import { useState } from "react";
+import { Bike, Camera, Droplets, ShirtIcon, Users, MapPin, ChevronDown, ChevronUp } from "lucide-react";
 
 const packages = [
   {
     id: "entrance-guides",
     title: "Entrance & Guides",
     icon: Users,
-    description: "Entry fees and professional guiding services",
+    description: "Entry fees and guiding",
     items: [
       { name: "Entrance (Residence)", price: 300, unit: "per person" },
       { name: "Entrance (Non-Residence)", price: 500, unit: "per person" },
@@ -17,22 +17,22 @@ const packages = [
     id: "quad-biking",
     title: "Quad Bike Riding",
     icon: Bike,
-    description: "Available daily from 8AM – 6:30 PM",
+    description: "Daily 8AM – 6:30 PM",
     items: [
       { name: "1 Hour Ride", price: 5000 },
-      { name: "40 Minutes Ride", price: 4500 },
-      { name: "30 Minutes Ride", price: 3500 },
-      { name: "20 Minutes Ride", price: 2500 },
-      { name: "15 Minutes Ride", price: 2000 },
-      { name: "10 Minutes Ride", price: 1500 },
-      { name: "5 Minutes Ride", price: 1000 },
+      { name: "40 Minutes", price: 4500 },
+      { name: "30 Minutes", price: 3500 },
+      { name: "20 Minutes", price: 2500 },
+      { name: "15 Minutes", price: 2000 },
+      { name: "10 Minutes", price: 1500 },
+      { name: "5 Minutes", price: 1000 },
     ],
   },
   {
     id: "clothing-gear",
     title: "Clothing & Gear",
     icon: ShirtIcon,
-    description: "Traditional attire and accessories",
+    description: "Traditional attire",
     items: [
       { name: "Arafat (Hire)", price: 200 },
       { name: "Arafat (Buy)", price: 1000 },
@@ -46,7 +46,7 @@ const packages = [
     id: "water-packages",
     title: "Refreshments",
     icon: Droplets,
-    description: "Stay hydrated in the desert",
+    description: "Stay hydrated",
     items: [
       { name: "Dafu", price: 100 },
       { name: "Maji Ndogo", price: 50 },
@@ -55,9 +55,9 @@ const packages = [
   },
   {
     id: "photography",
-    title: "Photography Package",
+    title: "Photography",
     icon: Camera,
-    description: "Professional photo sessions",
+    description: "Professional photos",
     items: [
       { name: "10 Edited Pictures", price: 1500 },
     ],
@@ -74,6 +74,12 @@ const packages = [
 ];
 
 const PackagesSection = () => {
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+
+  const toggleExpand = (id: string) => {
+    setExpandedId(expandedId === id ? null : id);
+  };
+
   return (
     <section id="packages" className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -86,49 +92,61 @@ const PackagesSection = () => {
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {packages.map((pkg, index) => (
-              <AccordionItem 
-                key={pkg.id} 
-                value={pkg.id}
-                className="card-service border-none px-6 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {packages.map((pkg, index) => (
+            <div
+              key={pkg.id}
+              className="card-service overflow-hidden animate-fade-in"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              {/* Header - Always visible */}
+              <button
+                onClick={() => toggleExpand(pkg.id)}
+                className="w-full p-5 flex items-center justify-between hover:bg-secondary/30 transition-colors"
               >
-                <AccordionTrigger className="hover:no-underline py-6">
-                  <div className="flex items-center gap-4 text-left">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                      <pkg.icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-display text-xl text-foreground">
-                        {pkg.title}
-                      </h3>
-                      <p className="font-body text-sm text-muted-foreground">
-                        {pkg.description}
-                      </p>
-                    </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <pkg.icon className="w-6 h-6 text-primary" />
                   </div>
-                </AccordionTrigger>
-                <AccordionContent>
-                  <div className="pt-2 pb-4 space-y-3">
-                    {pkg.items.map((item, i) => (
-                      <div 
-                        key={i}
-                        className="flex justify-between items-center py-3 px-4 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors"
-                      >
-                        <span className="font-body text-foreground">{item.name}</span>
-                        <span className="font-display text-lg text-primary">
-                          KES {item.price.toLocaleString()}
-                          {item.unit && <span className="text-sm text-muted-foreground ml-1">/{item.unit}</span>}
-                        </span>
-                      </div>
-                    ))}
+                  <div className="text-left">
+                    <h3 className="font-display text-lg text-foreground">
+                      {pkg.title}
+                    </h3>
+                    <p className="font-body text-xs text-muted-foreground">
+                      {pkg.description}
+                    </p>
                   </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                </div>
+                {expandedId === pkg.id ? (
+                  <ChevronUp className="w-5 h-5 text-primary shrink-0" />
+                ) : (
+                  <ChevronDown className="w-5 h-5 text-muted-foreground shrink-0" />
+                )}
+              </button>
+
+              {/* Expandable Content */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expandedId === pkg.id ? "max-h-96" : "max-h-0"
+                }`}
+              >
+                <div className="px-5 pb-5 space-y-2">
+                  {pkg.items.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center py-2 px-3 rounded-lg bg-secondary/50"
+                    >
+                      <span className="font-body text-sm text-foreground">{item.name}</span>
+                      <span className="font-display text-base text-primary whitespace-nowrap">
+                        KES {item.price.toLocaleString()}
+                        {item.unit && <span className="text-xs text-muted-foreground ml-1">/{item.unit}</span>}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
