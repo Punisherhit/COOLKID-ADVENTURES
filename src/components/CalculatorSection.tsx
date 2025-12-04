@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calculator, Minus, Plus } from "lucide-react";
+import { Calculator, Minus, Plus, Calendar } from "lucide-react";
+import { toast } from "sonner";
 
 interface CalculatorItem {
   id: string;
@@ -45,6 +46,7 @@ const categories = ["Entrance", "Quad Biking", "Clothing", "Refreshments", "Phot
 const CalculatorSection = () => {
   const [items, setItems] = useState<CalculatorItem[]>(initialItems);
   const [activeCategory, setActiveCategory] = useState("Entrance");
+  const [selectedDate, setSelectedDate] = useState("");
 
   const updateQuantity = (id: string, delta: number) => {
     setItems(items.map(item => 
@@ -59,6 +61,26 @@ const CalculatorSection = () => {
 
   const resetCalculator = () => {
     setItems(initialItems);
+    setSelectedDate("");
+  };
+
+  const handleBookNow = () => {
+    if (selectedItems.length === 0) {
+      toast.error("Please select at least one package or service");
+      return;
+    }
+    if (!selectedDate) {
+      toast.error("Please select a booking date");
+      return;
+    }
+
+    const itemsList = selectedItems
+      .map(item => `• ${item.name} x${item.quantity} = KES ${(item.price * item.quantity).toLocaleString()}`)
+      .join("%0A");
+    
+    const message = `Hello Coolkid Adventures,%0A%0AI would like to book the following:%0A%0A${itemsList}%0A%0A*Total: KES ${total.toLocaleString()}*%0A*Preferred Date: ${selectedDate}*%0A%0APlease confirm availability.`;
+    
+    window.open(`https://wa.me/254795573688?text=${message}`, "_blank");
   };
 
   return (
@@ -161,7 +183,7 @@ const CalculatorSection = () => {
                 </p>
               )}
 
-              <div className="border-t border-border pt-4 mb-6">
+              <div className="border-t border-border pt-4 mb-4">
                 <div className="flex justify-between items-center">
                   <span className="font-body text-muted-foreground">Total</span>
                   <span className="font-display text-3xl text-primary">
@@ -170,11 +192,26 @@ const CalculatorSection = () => {
                 </div>
               </div>
 
+              {/* Date Picker */}
+              <div className="mb-4">
+                <label className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
+                  <Calendar className="w-4 h-4" />
+                  Select Booking Date *
+                </label>
+                <input
+                  type="date"
+                  value={selectedDate}
+                  onChange={(e) => setSelectedDate(e.target.value)}
+                  min={new Date().toISOString().split("T")[0]}
+                  className="w-full px-3 py-2 rounded-lg bg-secondary border border-border text-foreground font-body focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+
               <div className="space-y-3">
                 <Button
                   variant="adventure"
                   className="w-full"
-                  onClick={() => window.open(`https://wa.me/254103120054?text=Hello%20Coolkid%20Adventures,%20I%20would%20like%20to%20book%20the%20following%20services%20(Total:%20KES%20${total.toLocaleString()})`, "_blank")}
+                  onClick={handleBookNow}
                 >
                   BOOK NOW
                 </Button>
