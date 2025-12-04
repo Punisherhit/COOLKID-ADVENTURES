@@ -33,7 +33,7 @@ const HeroSection = () => {
           <Button
             variant="hero"
             size="xl"
-            onClick={() => window.open("https://wa.me/254103120054?text=Hello%20Coolkid%20Adventures,%20I%20would%20like%20to%20book%20a%20sand%20dune%20experience.", "_blank")}
+            onClick={() => window.open("https://wa.me/254795573688?text=Hello%20Coolkid%20Adventures,%20I%20would%20like%20to%20book%20a%20sand%20dune%20experience.", "_blank")}
           >
             BOOK NOW
           </Button>

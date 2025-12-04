@@ -18,7 +18,7 @@ const ContactSection = () => {
           <div className="grid md:grid-cols-3 gap-6 mb-12">
             {/* WhatsApp */}
             <a
-              href="https://wa.me/254103120054"
+              href="https://wa.me/254795573688"
               target="_blank"
               rel="noopener noreferrer"
               className="card-service p-6 text-center group"
@@ -27,19 +27,19 @@ const ContactSection = () => {
                 <Phone className="w-8 h-8 text-[#25D366]" />
               </div>
               <h3 className="font-display text-xl text-foreground mb-2">WhatsApp</h3>
-              <p className="font-body text-muted-foreground text-sm">+254 103 120 054</p>
+              <p className="font-body text-muted-foreground text-sm">+254 795 573 688</p>
             </a>
 
             {/* Email */}
             <a
-              href="mailto:antondewin457@gmail.com"
+              href="mailto:zironickson@gmail.com"
               className="card-service p-6 text-center group"
             >
               <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                 <Mail className="w-8 h-8 text-primary" />
               </div>
               <h3 className="font-display text-xl text-foreground mb-2">Email</h3>
-              <p className="font-body text-muted-foreground text-sm">antondewin457@gmail.com</p>
+              <p className="font-body text-muted-foreground text-sm">zironickson@gmail.com</p>
             </a>
 
             {/* Location */}
@@ -63,7 +63,7 @@ const ContactSection = () => {
             <Button
               variant="hero"
               size="xl"
-              onClick={() => window.open("https://wa.me/254103120054?text=Hello%20Coolkid%20Adventures,%20I%20would%20like%20to%20book%20a%20sand%20dune%20experience.", "_blank")}
+              onClick={() => window.open("https://wa.me/254795573688?text=Hello%20Coolkid%20Adventures,%20I%20would%20like%20to%20book%20a%20sand%20dune%20experience.", "_blank")}
             >
               BOOK VIA WHATSAPP
             </Button>
