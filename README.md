@@ -1,73 +1,94 @@
-# Welcome to your Lovable project
+Sand Dune Adventure Hub
 
-## Project info
+A modern and responsive web application for exploring sand dunes, viewing packages, and booking guided adventure trips.
 
-**URL**: https://lovable.dev/projects/b0bcd6eb-83d8-47fa-b405-9838e10ec788
+Overview
 
-## How can I edit this code?
+Sand Dune Adventure Hub allows users to browse dune images, view available adventure packages, check pricing, and book trips. The platform is designed for speed, reliability, and a smooth user experience across all devices.
 
-There are several ways of editing your application.
+Features
+1. Sand Dune Gallery
 
-**Use Lovable**
+A visually engaging gallery showcasing images of sand dunes and adventure sites.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b0bcd6eb-83d8-47fa-b405-9838e10ec788) and start prompting.
+2. Adventure Packages
 
-Changes made via Lovable will be committed automatically to this repo.
+Details about available services, including:
 
-**Use your preferred IDE**
+Entrance fees (Resident / Non-Resident)
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Guiding fees
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Arafat hire and purchase
 
-Follow these steps:
+Photography/video clip locations
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+3. Booking System
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+Users can submit booking requests with clear and transparent pricing.
 
-# Step 3: Install the necessary dependencies.
-npm i
+4. Fully Responsive Design
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Optimized for viewing on mobile phones, tablets, and desktops.
 
-**Edit a file directly in GitHub**
+5. High Performance
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+Built with a fast bundler and optimized styles for quick loading times.
 
-**Use GitHub Codespaces**
+Tech Stack
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+This project uses a modern and scalable frontend development stack:
 
-## What technologies are used for this project?
+1. React
 
-This project is built with:
+A component-based JavaScript library for building user interfaces.
+React enables reusable UI components, fast rendering, and a clean separation of concerns.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+2. TypeScript
 
-## How can I deploy this project?
+A typed superset of JavaScript.
+TypeScript improves code reliability by catching errors during development.
+Benefits include:
 
-Simply open [Lovable](https://lovable.dev/projects/b0bcd6eb-83d8-47fa-b405-9838e10ec788) and click on Share -> Publish.
+Strong typing
 
-## Can I connect a custom domain to my Lovable project?
+Improved maintainability
 
-Yes, you can!
+Better tooling and auto-completion
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+3. Vite
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+A next-generation frontend build tool that provides:
+
+Lightning-fast development server
+
+Hot Module Replacement (HMR)
+
+Extremely fast production builds
+Compared to older tools like Webpack, Vite is significantly faster.
+
+4. Tailwind CSS
+
+A utility-first CSS framework that allows building custom designs directly from HTML/JSX.
+Key advantages:
+
+No need to write custom CSS files
+
+Consistent spacing, colors, and layout
+
+Faster UI building with utility classes
+
+Highly customizable theme configuration
+
+5. shadcn/ui
+
+A collection of prebuilt, accessible, and modern UI components based on Radix UI and Tailwind CSS.
+shadcn/ui provides:
+
+Consistent styling
+
+Accessible components
+
+Easy customization
+
+Production-ready component patterns
