@@ -1,17 +1,28 @@
 import { useState } from "react";
 import { X } from "lucide-react";
 
+import dunesSunset from "@/assets/gallery/dunes-sunset.jpg";
+import quadAction from "@/assets/gallery/quad-action.jpg";
+import dunesPanorama from "@/assets/gallery/dunes-panorama.jpg";
+import duneSilhouette from "@/assets/gallery/dune-silhouette.jpg";
+import quadParked from "@/assets/gallery/quad-parked.jpg";
+import dunesSunrise from "@/assets/gallery/dunes-sunrise.jpg";
+import quadGroup from "@/assets/gallery/quad-group.jpg";
+import duneFootprints from "@/assets/gallery/dune-footprints.jpg";
+import desertSunset from "@/assets/gallery/desert-sunset.jpg";
+import quadJump from "@/assets/gallery/quad-jump.jpg";
+
 const galleryImages = [
-  { id: 1, src: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&h=400&fit=crop", alt: "Sand dunes at sunset" },
-  { id: 2, src: "https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?w=600&h=400&fit=crop", alt: "Quad biking adventure" },
-  { id: 3, src: "https://images.unsplash.com/photo-1507358522600-9f71e620c44e?w=600&h=400&fit=crop", alt: "Desert landscape" },
-  { id: 4, src: "https://images.unsplash.com/photo-1549144511-f099e773c147?w=600&h=400&fit=crop", alt: "Golden sand dunes" },
-  { id: 5, src: "https://images.unsplash.com/photo-1517128446903-0f6ce788c265?w=600&h=400&fit=crop", alt: "Desert sunset" },
-  { id: 6, src: "https://images.unsplash.com/photo-1548858806-e064cf7cd64a?w=600&h=400&fit=crop", alt: "Adventure in dunes" },
-  { id: 7, src: "https://images.unsplash.com/photo-1542401886-65d6c61db217?w=600&h=400&fit=crop", alt: "Desert panorama" },
-  { id: 8, src: "https://images.unsplash.com/photo-1604223190546-a43e4c7f29d7?w=600&h=400&fit=crop", alt: "ATV riding in sand" },
-  { id: 9, src: "https://images.unsplash.com/photo-1500534623283-312aade485b7?w=600&h=400&fit=crop", alt: "Dune silhouettes" },
-  { id: 10, src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=600&h=400&fit=crop", alt: "Desert road adventure" },
+  { id: 1, src: dunesSunset, alt: "Golden sand dunes at sunset" },
+  { id: 2, src: quadAction, alt: "Quad biking adventure" },
+  { id: 3, src: dunesPanorama, alt: "Desert sand dunes panorama" },
+  { id: 4, src: duneSilhouette, alt: "Silhouette on sand dune" },
+  { id: 5, src: quadParked, alt: "Red quad bike on dunes" },
+  { id: 6, src: dunesSunrise, alt: "Sunrise over sand dunes" },
+  { id: 7, src: quadGroup, alt: "Group quad biking expedition" },
+  { id: 8, src: duneFootprints, alt: "Footprints on sand dunes" },
+  { id: 9, src: desertSunset, alt: "Dramatic desert sunset" },
+  { id: 10, src: quadJump, alt: "Quad bike jumping dune" },
 ];
 
 const GallerySection = () => {
